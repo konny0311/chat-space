@@ -23,13 +23,23 @@ Things you may want to cover:
 
 * ...
 
-#Database structure
+# Database structure
 ## user table
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 |email|string|null: false|
+
+### Association
+- has_many :members
+- has_many :messages
+
+## group table
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
 
 ### Association
 - has_many :members
