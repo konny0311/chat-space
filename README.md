@@ -6,7 +6,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|email|string|null: false, unique: true|
+|email|string|null: false, add_index: unique: true|
 
 ### Association
 - has_many :members
@@ -37,7 +37,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text||
+|body|text|add_index|
 |image|string||
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
