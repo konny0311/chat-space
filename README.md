@@ -13,6 +13,19 @@ Things you may want to cover:
 
 * Database creation
 
+## user table
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|email|string|null: false|
+
+### Association
+- has_many :members
+- has_many :messages
+
+
+
 * Database initialization
 
 * How to run the test suite
