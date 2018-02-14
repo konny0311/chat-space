@@ -3,14 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 // SCSSはcssの上位互換故にcss文法がそのまま使える
 
+// color variables
 $header-color: #38AEF0;
 $mainleft-color: #2f3e51;
 $mainpart-color: white;
 $headerleft-color: #253141;
 $mainbody-color: #AAAAAA;
 
+// hight variables
+$hight-of-header: 35px;
+$hight-of-contents-header: 90px;
+$hight-of-footer: 50px;
+
+// width variables
+$width-of-left: 300px;
+
 header {
-  height: 35px;
+  height: $hight-of-header;
   background-color: $header-color;
   font-size: 20px;
   color: white;
@@ -22,18 +31,17 @@ header {
   width: 100vw;
 
   &_header {
-    // height: 90px;
 
     &--left {
-      height: 90px;
-      width: 300px;
+      height: $hight-of-contents-header;
+      width: $width-of-left;
       background-color: $headerleft-color;
       float: left;
       }
 
     &--body {
-      height: 90px;
-      width: calc(100vw - 300px);
+      height: $hight-of-contents-header;
+      width: 100% - $width-of-left;
       background-color: $mainpart-color;
       float: left;
       }
@@ -41,27 +49,27 @@ header {
     }
 
     .contents_main {
-      height: calc(100vh - 125px);
+      height: 100vh - $hight-of-header - $hight-of-contents-header;
       width: 100%;
       background-color: $mainpart-color;
 
         &--left {
-          width: 300px;
-          height: calc(100vh - 125px);
+          width: $width-of-left;
+          height: 100vh - $hight-of-header - $hight-of-contents-header;
           background-color: $mainleft-color;
           float: left;
         }
 
         &--body {
-          width: calc(100vw - 300px);
-          height: calc(100vh - 125px);
+          width: 100vw - $width-of-left;
+          height: 100vh - $hight-of-header - $hight-of-contents-header;
           background-color:$mainbody-color;
           float: right;
 
 
           &--footer {
-            height: 50px;
-            width: calc(100vw - 300px);
+            height: $hight-of-footer;
+            width: 100vw - $width-of-left;
             padding: 20px 0;
             position: absolute;
             bottom: 0;
