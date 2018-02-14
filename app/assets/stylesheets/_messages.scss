@@ -3,9 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 // SCSSはcssの上位互換故にcss文法がそのまま使える
 
+$header-color: #38AEF0;
+$leftside-color: #2f3e51;
+$mainpart-color: white;
+
+
 header {
   height: 35px;
-  background-color: #38AEF0;
+  background-color: $header-color;
   font-size: 20px;
   color: white;
   text-align: center;
@@ -21,13 +26,13 @@ header {
 
     &--left {
       width: 300px;
-      background-color: #2f3e51;
+      background-color: $leftside-color;
       float: left
       }
 
     &--body {
       width: calc(100% - 300px);
-      background-color: white;
+      background-color: $mainpart-color;
     }
 
     }
