@@ -11,5 +11,11 @@ module ChatSpace
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    #不要なjs,helper,test_frameworkがコントローラー作成時に生成されない設定
+    config.generators do |g|
+        g.javascripts false
+        g.helper false
+        g.test_framework false
+      end
   end
 end
