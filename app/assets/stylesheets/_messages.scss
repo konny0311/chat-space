@@ -10,3 +10,45 @@ header {
   color: white;
   text-align: center;
 }
+
+.contents {
+  height: 100%;
+  width: 100%;
+  background: white;
+
+  &_header {
+    height: 200px;
+
+    &--left {
+      width: 300px;
+      background-color: #2f3e51;
+      float: left
+      }
+
+    &--body {
+      width: calc(100% - 300px);
+      background-color: white;
+    }
+
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
