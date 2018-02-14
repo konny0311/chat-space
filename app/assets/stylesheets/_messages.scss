@@ -10,6 +10,8 @@ $mainpart-color: white;
 $headerleft-color: #253141;
 $mainbody-color: #AAAAAA;
 $textcolor-left: #FFFFFFFF;
+$groupnamecolor-top: #333333;
+$membercolor-top: #999999;
 
 // hight variables
 $hight-of-header: 35px;
@@ -47,6 +49,17 @@ header {
       width: calc(100vm - #{$width-of-left});
       background-color: $mainpart-color;
       float: left;
+
+        h1 {
+          font-size: 20px;
+          color: $groupnamecolor-top;
+          padding: 35px 0 15px 40px;
+        }
+
+        p {
+          font-size: 12px;
+          color: $membercolor-top;
+        }
       }
 
     }
