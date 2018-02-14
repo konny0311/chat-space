@@ -1,28 +1,28 @@
 # README
 
 # Database structure
-## user table
+## users table
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false, index: true, unique: true|
 |email|string|null: false, add_index: unique: true|
 
 ### Association
 - has_many :members
 - has_many :messages
 
-## group table
+## groups table
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false, unique: true|
 
 ### Association
 - has_many :members
 - has_many :messages
 
-## member table
+## members table
 
 |Column|Type|Options|
 |------|----|-------|
@@ -33,7 +33,7 @@
 - belongs_to :user
 - belongs_to :group
 
-## message table
+## messages table
 
 |Column|Type|Options|
 |------|----|-------|
