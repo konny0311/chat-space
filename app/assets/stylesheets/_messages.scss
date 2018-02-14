@@ -9,6 +9,7 @@ $mainleft-color: #2f3e51;
 $mainpart-color: white;
 $headerleft-color: #253141;
 $mainbody-color: #AAAAAA;
+$textcolor-left: #FFFFFFFF;
 
 // hight variables
 $hight-of-header: 35px;
@@ -60,6 +61,19 @@ header {
           height: calc(100vh - #{$hight-of-header} - #{$hight-of-contents-header});
           background-color: $mainleft-color;
           float: left;
+
+            li {
+              font-size: 15px;
+              color: $textcolor-left;
+              padding-top: 20px;
+            }
+
+            p {
+              font-size: 11px;
+              color: $textcolor-left;
+              padding-top: 5px;
+              padding-bottom: 20px;
+            }
         }
 
         &--body {
