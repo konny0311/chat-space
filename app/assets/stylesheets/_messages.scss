@@ -4,9 +4,10 @@
 // SCSSはcssの上位互換故にcss文法がそのまま使える
 
 $header-color: #38AEF0;
-$leftside-color: #2f3e51;
+$mainleft-color: #2f3e51;
 $mainpart-color: white;
-
+$headerleft-color: #253141;
+$mainbody-color: #AAAAAA;
 
 header {
   height: 35px;
@@ -17,43 +18,56 @@ header {
 }
 
 .contents {
-  height: 100%;
-  width: 100%;
-  background: white;
+  height: 100vh;
+  width: 100vw;
 
   &_header {
-    height: 200px;
+    // height: 90px;
 
     &--left {
+      height: 90px;
       width: 300px;
-      background-color: $leftside-color;
-      float: left
+      background-color: $headerleft-color;
+      float: left;
       }
 
     &--body {
-      width: calc(100% - 300px);
+      height: 90px;
+      width: calc(100vw - 300px);
       background-color: $mainpart-color;
-    }
+      float: left;
+      }
 
     }
-  }
+
+    .contents_main {
+      height: calc(100vh - 125px);
+      width: 100%;
+      background-color: $mainpart-color;
+
+        &--left {
+          width: 300px;
+          height: calc(100vh - 125px);
+          background-color: $mainleft-color;
+          float: left;
+        }
+
+        &--body {
+          width: calc(100vw - 300px);
+          height: calc(100vh - 125px);
+          background-color:$mainbody-color;
+          float: right;
 
 
+          &--footer {
+            height: 50px;
+            width: calc(100vw - 300px);
+            padding: 20px 0;
+            position: absolute;
+            bottom: 0;
+            background-color: black;
+          }
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 }
