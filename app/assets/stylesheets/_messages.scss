@@ -8,21 +8,29 @@ $header-color: #38AEF0;
 $mainleft-color: #2f3e51;
 $mainpart-color: white;
 $headerleft-color: #253141;
-$mainbody-color: #AAAAAA;
+$mainbody-color: #FAFAFA;
 $textcolor-left: #FFFFFFFF;
 $groupnamecolor-top: #333333;
 $membercolor-top: #999999;
+$messanger-color: #434A54;
+$posteddate-color: #999999;
+$message-color: #434A54;
+$headerborder-color: #eeeeee;
+$footer-color: #AAAAAA;
+$messagebox_content-color: #434A54;
+$sendbutton-color: #38AEF0;
+$sendtext-color: white;
 
 // hight variables
-$hight-of-header: 35px;
-$hight-of-contents-header: 100px;
-$hight-of-footer: 50px;
+$height-of-header: 35px;
+$height-of-contents-header: 100px;
+$height-of-footer: 50px;
 
 // width variables
 $width-of-left: 300px;
 
 header {
-  height: $hight-of-header;
+  height: $height-of-header;
   background-color: $header-color;
   font-size: 20px;
   color: white;
@@ -34,11 +42,12 @@ header {
   width: 100vw;
 
   &_header {
-    height: $hight-of-contents-header;
+    height: $height-of-contents-header;
     width: 100vw;
+    border-bottom: solid 1px $headerborder-color;
 
     &--left {
-      height: $hight-of-contents-header;
+      height: $height-of-contents-header;
       width: $width-of-left;
       background-color: $headerleft-color;
       float: left;
@@ -52,7 +61,7 @@ header {
       }
 
     &--body {
-      height: $hight-of-contents-header;
+      height: $height-of-contents-header;
       width: calc(100% - #{$width-of-left});
       background-color: $mainpart-color;
       float: left;
@@ -75,13 +84,13 @@ header {
     }
 
     .contents_main {
-      height: calc(100vh - #{$hight-of-header} - #{$hight-of-contents-header});
+      height: calc(100vh - #{$height-of-header} - #{$height-of-contents-header});
       width: 100vw;
       background-color: $mainpart-color;
 
         &--left {
           width: $width-of-left;
-          height: calc(100vh - #{$hight-of-header} - #{$hight-of-contents-header});
+          height: calc(100vh - #{$height-of-header} - #{$height-of-contents-header});
           background-color: $mainleft-color;
           float: left;
 
@@ -96,25 +105,83 @@ header {
               font-size: 11px;
               color: $textcolor-left;
               padding-top: 5px;
-              padding-bottom: 20px;
+              padding-bottom: 40px;
               padding-left: 20px;
             }
         }
 
         &--body {
           width: calc(100vw - #{$width-of-left});
-          height: calc(100vh - #{$hight-of-header} - #{$hight-of-contents-header});
+          height: calc(100vh - #{$height-of-header} - #{$height-of-contents-header});
           background-color:$mainbody-color;
           float: right;
 
+          ul {
+            padding-top: 46px;
+
+
+            li {
+              font-size: 16px;
+              font-weight: bold;
+              color: $messanger-color;
+              padding-bottom: 40px;
+              padding-left: 40px;
+
+                span {
+                  color: $posteddate-color;
+                  font-size: 10px;
+                  font-weight: normal;
+                }
+
+                p {
+                  font-size: 14px;
+                  font-weight: normal;
+                  color: $message-color;
+                  padding: 10px 0;
+
+                }
+            }
+          }
+
 
           &--footer {
-            height: $hight-of-footer;
+            height: $height-of-footer;
             width: calc(100vw - #{$width-of-left});
             padding: 20px 0;
             position: absolute;
             bottom: 0;
-            background-color: black;
+            background-color: $footer-color;
+
+            .message-box {
+              background-color: white;
+              height: 50px;
+              width: calc(100vw - #{$width-of-left} - 195px);
+              margin: 20px 15px 0 40px;
+              position: absolute;
+              bottom: 20px;
+              float: left;
+
+              p {
+                font-size: 14px;
+                color: $messagebox_content-color;
+                padding: 15px 0 15px 10px;
+
+              }
+            }
+
+            .send-button {
+              background-color: $sendbutton-color;
+              height: 50px;
+              width: 100px;
+              position: absolute;
+              bottom: 20px;
+              right: 40px;
+              text-align: center;
+              vertical-align: middle;
+              line-height: 50px;
+              color: $sendtext-color;
+              }
+
           }
         }
 
