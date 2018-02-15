@@ -58,8 +58,15 @@ header {
         color: #FFFFFF;
         padding: 35px 0 0 20px;
         text-align: left;
+
+        i {
+          float: right;
+          padding-right: 20px;
         }
-      }
+        }
+
+
+    }
 
     &--body {
       height: $height-of-contents-header;
@@ -181,6 +188,12 @@ header {
                 font-size: 14px;
                 color: $messagebox_content-color;
                 padding: 15px 0 15px 10px;
+
+                i {
+                  color: black;
+                  float: right;
+                  padding-right: 10px;
+                }
 
               }
             }
