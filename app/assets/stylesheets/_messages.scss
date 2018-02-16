@@ -1,0 +1,184 @@
+.contents {
+  height: 100vh;
+  width: 100vw;
+
+  &_header {
+    height: $height-of-contents-header;
+    width: 100vw;
+    border-bottom: solid 1px $headerborder-color;
+
+    &--left {
+      @include contents_header(
+      $height-of-contents-header,
+      $width-of-left,
+      $headerleft-color);
+
+      h1.current_user_name {
+        font-size: 16px;
+        color: $username-color;
+        padding: 35px 0 0 20px;
+        text-align: left;
+        // icons
+        i {
+          float: right;
+          padding-right: 20px;
+          color: $username-color;
+          }
+        }
+    }
+
+    &--body {
+      @include contents_header(
+      $height-of-contents-header,
+      calc(100% - #{$width-of-left}),
+      $mainpart-color);
+
+        h1.current_group_name {
+          font-size: 20px;
+          color: $groupnamecolor-top;
+          padding: 35px 0 0 40px;
+          text-align: left;
+          }
+
+        p.group-members {
+          font-size: 12px;
+          color: $membercolor-top;
+          padding: 15px 0 0 40px;
+          text-align: left;
+          }
+
+        .edit-button {
+          margin-top: 28px;
+          position: absolute;
+          top: 28px;
+          right: 40px;
+          border: solid 1px $edittext-color;
+
+        span.edit {
+          line-height: 40px;
+          margin: 0 20px;
+          color: $edittext-color;
+          text-align: center;
+          vertical-align: middle;
+          }
+        }
+    }
+  }
+
+    .contents_main {
+      @include contents_main(
+      calc(100vh - #{$height-of-header} - #{$height-of-contents-header}),
+      100vw,
+      $mainpart-color,
+      0);
+
+      //registered groups shown here
+        &--left {
+
+          @include contents_main(
+          calc(100vh - #{$height-of-header} - #{$height-of-contents-header}),
+          $width-of-left,
+          $mainleft-color,
+          left);
+
+            h2.group-name {
+              font-size: 15px;
+              color: $textcolor-left;
+              padding-top: 20px;
+              padding-left: 20px;
+            }
+
+            p.group-message {
+              font-size: 11px;
+              color: $textcolor-left;
+              padding-top: 5px;
+              padding-bottom: 40px;
+              padding-left: 20px;
+            }
+        }
+
+        //chat in a selected group shown here
+        &--body {
+          @include contents_main(
+          calc(100vh - #{$height-of-header} - #{$height-of-contents-header}),
+          calc(100vw - #{$width-of-left}),
+          $mainbody-color,
+          right);
+
+          //chats
+          ul.chat-history {
+            padding-top: 46px;
+
+            li.chat-each {
+              font-size: 16px;
+              font-weight: bold;
+              color: $messanger-color;
+              padding-bottom: 40px;
+              padding-left: 40px;
+
+                span.posteddate {
+                  color: $posteddate-color;
+                  font-size: 10px;
+                  font-weight: normal;
+                }
+
+                p.message {
+                  font-size: 14px;
+                  font-weight: normal;
+                  color: $message-color;
+                  padding: 10px 0;
+
+                }
+            }
+          }
+
+          //message box
+          &--footer {
+            height: $height-of-footer;
+            width: calc(100vw - #{$width-of-left});
+            padding: 20px 0;
+            position: absolute;
+            bottom: 0;
+            background-color: $footer-color;
+
+            //put your message
+            .message-box {
+              background-color: white;
+              height: 50px;
+              width: calc(100vw - #{$width-of-left} - 195px);
+              margin: 20px 15px 0 40px;
+              position: absolute;
+              bottom: 20px;
+              float: left;
+
+              p.new-message {
+                font-size: 14px;
+                color: $messagebox_content-color;
+                padding: 15px 0 15px 10px;
+
+                //image uploading
+                .fa-image {
+                  color: black;
+                  float: right;
+                  padding-right: 10px;
+                  font-size: 16px;
+                  }
+                }
+              }
+
+            .send-button {
+              background-color: $sendbutton-color;
+              height: 50px;
+              width: 100px;
+              position: absolute;
+              bottom: 20px;
+              right: 40px;
+              text-align: center;
+              vertical-align: middle;
+              line-height: 50px;
+              color: $sendtext-color;
+              }
+          }
+        }
+    }
+}
