@@ -1,0 +1,14 @@
+// mixin for frame
+@mixin contents_header($height, $width, $background-color) {
+  height: $height;
+  width: $width;
+  background-color: $background-color;
+  float: left;
+}
+
+@mixin contents_main($height, $width, $background-color, $float) {
+  height: $height;
+  width: $width;
+  background-color: $background-color;
+  float: $float;
+}

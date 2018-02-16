@@ -24,18 +24,3 @@ $height-of-contents-header: 100px;
 $height-of-footer:          50px;
 // width variables
 $width-of-left:             300px;
-
-// mixin for frame
-@mixin contents_header($height, $width, $background-color) {
-  height: $height;
-  width: $width;
-  background-color: $background-color;
-  float: left;
-}
-
-@mixin contents_main($height, $width, $background-color, $float) {
-  height: $height;
-  width: $width;
-  background-color: $background-color;
-  float: $float;
-}
