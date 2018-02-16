@@ -14,7 +14,7 @@
             %i.fa.fa-cog
 
       .contents_header--body
-        %h1 Sample_group
+        %h1 Group_name--a
         %p member-a, member-b
 
         .edit-button
@@ -51,9 +51,11 @@
           .message-box
             %p
               type your message here
-              <div class="originalFileBtn">
-              YOUR FILE
-              <input type="file">
-              </div>
+
+              <input type="file" name="upfile" id="upfile" accept="image/*" capture="camera" style="display:none" />
+              <i class = "fa fa-image"  onClick="$('#upfile').click()">
+              </i>
+
+
 
           .send-button Send
