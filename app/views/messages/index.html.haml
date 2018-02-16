@@ -5,6 +5,8 @@
   .contents
 
     .contents_header
+
+      /Current_user_name, edit and setting functions shown here
       .contents_header--left
         %h1
           Current_user_name
@@ -13,7 +15,9 @@
           = link_to "https://www.google.co.jp/" do
             %i.fa.fa-cog
 
+      /current group name and members shown
       .contents_header--body
+
         %h1 Group_name--a
         %p member-a, member-b
 
@@ -21,6 +25,7 @@
           %span Edit
 
     .contents_main
+      /registered groups shown
       .contents_main--left
         %ul
           %li Group_name--a
@@ -29,6 +34,7 @@
           %li Group_name--b
           %p latest message here
 
+      / chat in a selected group shown
       .contents_main--body
         %ul
           %li
@@ -46,6 +52,7 @@
             %span posted date
             %p message-3
 
+        / put your message here
         .contents_main--body--footer
 
           .message-box
@@ -55,7 +62,5 @@
               <input type="file" name="upfile" id="upfile" accept="image/*" capture="camera" style="display:none" />
               <i class = "fa fa-image"  onClick="$('#upfile').click()">
               </i>
-
-
 
           .send-button Send

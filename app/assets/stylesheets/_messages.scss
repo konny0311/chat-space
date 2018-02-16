@@ -2,33 +2,48 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// color variables
-$header-color: #38AEF0;
-$mainleft-color: #2f3e51;
-$mainpart-color: white;
-$headerleft-color: #253141;
-$mainbody-color: #FAFAFA;
-$textcolor-left: #FFFFFFFF;
-$groupnamecolor-top: #333333;
-$membercolor-top: #999999;
-$messanger-color: #434A54;
-$posteddate-color: #999999;
-$message-color: #434A54;
-$headerborder-color: #eeeeee;
-$footer-color: #AAAAAA;
-$messagebox_content-color: #434A54;
-$sendbutton-color: #38AEF0;
-$sendtext-color: white;
-$edittext-color: #38AEF0;
-$username-color: #FFFFFF;
-
+// framecolor variables
+$header-color:              #38AEF0;
+$mainleft-color:            #2f3e51;
+$mainpart-color:            white;
+$headerleft-color:          #253141;
+$mainbody-color:            #FAFAFA;
+$headerborder-color:        #eeeeee;
+// textcolor ariables
+$textcolor-left:            #FFFFFFFF;
+$groupnamecolor-top:        #333333;
+$membercolor-top:           #999999;
+$messanger-color:           #434A54;
+$posteddate-color:          #999999;
+$message-color:             #434A54;
+$footer-color:              #AAAAAA;
+$messagebox_content-color:  #434A54;
+$sendbutton-color:          #38AEF0;
+$sendtext-color:            white;
+$edittext-color:            #38AEF0;
+$username-color:            #FFFFFF;
 // hight variables
-$height-of-header: 35px;
+$height-of-header:          35px;
 $height-of-contents-header: 100px;
-$height-of-footer: 50px;
-
+$height-of-footer:          50px;
 // width variables
-$width-of-left: 300px;
+$width-of-left:             300px;
+
+// mixin for frame
+@mixin contents_header($height, $width, $background-color) {
+  height: $height;
+  width: $width;
+  background-color: $background-color;
+  float: left;
+}
+
+@mixin contents_main($height, $width, $background-color, $float) {
+  height: $height;
+  width: $width;
+  background-color: $background-color;
+  float: $float;
+}
+//-------------------------------------------
 
 header {
   height: $height-of-header;
@@ -47,15 +62,11 @@ header {
     width: 100vw;
     border-bottom: solid 1px $headerborder-color;
 
-    @mixin contents_header($height, $width, $background-color) {
-      height: $height;
-      width: $width;
-      background-color: $background-color;
-      float: left;
-    }
-
     &--left {
-      @include contents_header($height-of-contents-header,$width-of-left,$headerleft-color);
+      @include contents_header(
+      $height-of-contents-header,
+      $width-of-left,
+      $headerleft-color);
 
       h1 {
         font-size: 16px;
@@ -67,28 +78,29 @@ header {
           float: right;
           padding-right: 20px;
           color: $username-color;
-
+          }
         }
-        }
-
     }
 
     &--body {
-      @include contents_header($height-of-contents-header,calc(100% - #{$width-of-left}),$mainpart-color);
+      @include contents_header(
+      $height-of-contents-header,
+      calc(100% - #{$width-of-left}),
+      $mainpart-color);
 
         h1 {
           font-size: 20px;
           color: $groupnamecolor-top;
           padding: 35px 0 0 40px;
           text-align: left;
-        }
+          }
 
         p {
           font-size: 12px;
           color: $membercolor-top;
           padding: 15px 0 0 40px;
           text-align: left;
-        }
+          }
 
         .edit-button {
           margin-top: 28px;
@@ -97,30 +109,32 @@ header {
           right: 40px;
           border: solid 1px $edittext-color;
 
-          span {
-            line-height: 40px;
-            margin: 0 20px;
-            color: $edittext-color;
-            text-align: center;
-            vertical-align: middle;
-
+        span {
+          line-height: 40px;
+          margin: 0 20px;
+          color: $edittext-color;
+          text-align: center;
+          vertical-align: middle;
           }
-
         }
     }
-
   }
 
     .contents_main {
-      height: calc(100vh - #{$height-of-header} - #{$height-of-contents-header});
-      width: 100vw;
-      background-color: $mainpart-color;
+      @include contents_main(
+      calc(100vh - #{$height-of-header} - #{$height-of-contents-header}),
+      100vw,
+      $mainpart-color,
+      0);
 
+      //registered groups shown here
         &--left {
-          width: $width-of-left;
-          height: calc(100vh - #{$height-of-header} - #{$height-of-contents-header});
-          background-color: $mainleft-color;
-          float: left;
+
+          @include contents_main(
+          calc(100vh - #{$height-of-header} - #{$height-of-contents-header}),
+          $width-of-left,
+          $mainleft-color,
+          left);
 
             li {
               font-size: 15px;
@@ -138,15 +152,17 @@ header {
             }
         }
 
+        //chat in a selected group shown here
         &--body {
-          width: calc(100vw - #{$width-of-left});
-          height: calc(100vh - #{$height-of-header} - #{$height-of-contents-header});
-          background-color:$mainbody-color;
-          float: right;
+          @include contents_main(
+          calc(100vh - #{$height-of-header} - #{$height-of-contents-header}),
+          calc(100vw - #{$width-of-left}),
+          $mainbody-color,
+          right);
 
+          //chats
           ul {
             padding-top: 46px;
-
 
             li {
               font-size: 16px;
@@ -171,8 +187,7 @@ header {
             }
           }
 
-
-
+          //message box
           &--footer {
             height: $height-of-footer;
             width: calc(100vw - #{$width-of-left});
@@ -181,6 +196,7 @@ header {
             bottom: 0;
             background-color: $footer-color;
 
+            //put your message
             .message-box {
               background-color: white;
               height: 50px;
@@ -195,14 +211,15 @@ header {
                 color: $messagebox_content-color;
                 padding: 15px 0 15px 10px;
 
+                //image uploading
                 i {
                   color: black;
                   float: right;
                   padding-right: 10px;
                   font-size: 16px;
                   }
+                }
               }
-            }
 
             .send-button {
               background-color: $sendbutton-color;
@@ -216,9 +233,7 @@ header {
               line-height: 50px;
               color: $sendtext-color;
               }
-
           }
         }
-
     }
 }
