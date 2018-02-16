@@ -1,12 +1,4 @@
-@import "config", "mixin";
-
-#notification {
-  height: $height-of-header;
-  background-color: $header-color;
-  font-size: 20px;
-  color: white;
-  text-align: center;
-}
+@import "config", "mixin/mixin", "mixin/notification";
 
 .contents {
   height: 100vh;
