@@ -47,11 +47,15 @@ header {
     width: 100vw;
     border-bottom: solid 1px $headerborder-color;
 
-    &--left {
-      height: $height-of-contents-header;
-      width: $width-of-left;
-      background-color: $headerleft-color;
+    @mixin contents_header($height, $width, $background-color) {
+      height: $height;
+      width: $width;
+      background-color: $background-color;
       float: left;
+    }
+
+    &--left {
+      @include contents_header($height-of-contents-header,$width-of-left,$headerleft-color);
 
       h1 {
         font-size: 16px;
@@ -67,14 +71,10 @@ header {
         }
         }
 
-
     }
 
     &--body {
-      height: $height-of-contents-header;
-      width: calc(100% - #{$width-of-left});
-      background-color: $mainpart-color;
-      float: left;
+      @include contents_header($height-of-contents-header,calc(100% - #{$width-of-left}),$mainpart-color);
 
         h1 {
           font-size: 20px;
