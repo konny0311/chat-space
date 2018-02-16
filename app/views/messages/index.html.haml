@@ -7,7 +7,7 @@
 
     /Current_user_name, edit and setting functions shown here
     .contents_header--left
-      %h1
+      %h1.current_user_name
         Current_user_name
         = link_to "https://www.google.co.jp/" do
           %i.fa.fa-edit
@@ -17,45 +17,45 @@
       /current group name and members shown
     .contents_header--body
 
-      %h1 Group_name--a
-      %p member-a, member-b
+      %h1.current_group_name Group_name--a
+      %p.group-members member-a, member-b
 
       .edit-button
-        %span Edit
+        %span.edit Edit
 
   .contents_main
     /registered groups shown
     .contents_main--left
-      %ul
-        %li Group_name--a
-        %p latest message here
+      %ul.all-groups
+        %li.registered-group Group_name--a
+        %p.latest-message latest message here
 
-        %li Group_name--b
-        %p latest message here
+        %li.registered-group Group_name--b
+        %p.latest-message latest message here
 
     / chat in a selected group shown
     .contents_main--body
-      %ul
-        %li
+      %ul.chat-history
+        %li.chat-each
           member-a
-          %span posted date
-          %p message-1
+          %span.posteddate posted date
+          %p.message message-1
 
-        %li
+        %li.chat-each
           member-b
-          %span posted date
-          %p message-2
+          %span.posteddate posted date
+          %p.message message-2
 
-        %li
+        %li.chat-each
           member-a
-          %span posted date
-          %p message-3
+          %span.posteddate posted date
+          %p.message message-3
 
       / put your message here
       .contents_main--body--footer
 
         .message-box
-          %p
+          %p.new-message
             type your message here
 
             <input type="file" name="upfile" id="upfile" accept="image/*" capture="camera" style="display:none" />
