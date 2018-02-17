@@ -1,6 +1,8 @@
 @import "./reset";
 @import "font-awesome";
+@import "config/color";
+@import "modules/flash";
 @import "config/variables";
 @import "mixin/mixin";
-@import "mixin/notification";
+@import "modules/user";
 @import "./messages";
