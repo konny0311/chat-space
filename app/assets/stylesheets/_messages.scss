@@ -48,7 +48,6 @@
           }
 
         .edit-button {
-          margin-top: 28px;
           position: absolute;
           top: 28px;
           right: 40px;
@@ -76,7 +75,7 @@
         &--left {
 
           @include contents_main(
-          calc(100vh - #{$height-of-header} - #{$height-of-contents-header}),
+          calc(100vh - #{$height-of-contents-header}),
           $width-of-left,
           $mainleft-color,
           left);
