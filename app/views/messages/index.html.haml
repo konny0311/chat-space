@@ -5,8 +5,8 @@
     /Current_user_name, edit and setting functions shown here
     .contents_header--left
       %h1.current_user_name
-        Current_user_name
-        = link_to "https://www.google.co.jp/" do
+        = current_user.name
+        = link_to "/messages/index" do
           %i.fa.fa-edit
         = link_to "https://www.google.co.jp/" do
           %i.fa.fa-cog
