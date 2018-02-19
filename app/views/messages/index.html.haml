@@ -4,7 +4,7 @@
     .contents_header--left
       %h1.current_user_name
         = current_user.name
-        = link_to "/users/:id/edit" do
+        = link_to edit_user_path(current_user.id) do
           %i.fa.fa-cog
         = link_to "/groups/new" do
           %i.fa.fa-edit
@@ -13,7 +13,7 @@
       %h1.current_group_name Group_name--a
       %p.group-members member-a, member-b
       .edit-button
-        = link_to "" do
+        = link_to edit_group_path(1) do
           .edit Edit
 
 
