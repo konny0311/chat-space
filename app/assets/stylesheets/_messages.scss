@@ -80,14 +80,14 @@
           $mainleft-color,
           left);
 
-            h2.group-name {
+            .group-name {
               font-size: 15px;
               color: $textcolor-left;
               padding-top: 20px;
               padding-left: 20px;
             }
 
-            p.group-message {
+            .group-message {
               font-size: 11px;
               color: $textcolor-left;
               padding-top: 5px;
