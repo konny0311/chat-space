@@ -4,9 +4,9 @@
     .contents_header--left
       %h1.current_user_name
         = current_user.name
-        = link_to "/users/:id/edit" do
+        = link_to "/groups/new" do
           %i.fa.fa-cog
-        = link_to "" do
+        = link_to "/users/:id/edit" do
           %i.fa.fa-edit
       /current group name and members shown
     .contents_header--body
