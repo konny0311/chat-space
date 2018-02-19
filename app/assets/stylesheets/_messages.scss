@@ -151,11 +151,12 @@
               position: absolute;
               bottom: 20px;
               float: left;
+              vertical-align: middle;
 
-              p.new-message {
-                font-size: 14px;
-                color: $messagebox_content-color;
-                padding: 15px 0 15px 10px;
+              // p.new-message {
+              //   font-size: 14px;
+              //   color: $messagebox_content-color;
+              //   padding: 15px 0 15px 10px;
 
                 //image uploading
                 .fa-image {
@@ -164,7 +165,7 @@
                   padding-right: 10px;
                   font-size: 16px;
                   }
-                }
+                // }
               }
 
             .send-button {

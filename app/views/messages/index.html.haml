@@ -48,8 +48,8 @@
       / put your message here
       .contents_main--body--footer
         .message-box
-          %p.new-message
-            type your message here
-            %input#upfile{:accept => "image/*", :name => "upfile", :style => "display:none", :type => "file"}/
-            %i.fa.fa-image{:onclick => "$('#upfile').click()"}
+        - form_for @message do |m|
+        = m.string_field :content, class: 'message-content', placeholder: 'put your message here'
+          %input#upfile{:accept => "image/*", :name => "upfile", :style => "display:none", :type => "file"}/
+          %i.fa.fa-image{:onclick => "$('#upfile').click()"}
         .send-button Send
