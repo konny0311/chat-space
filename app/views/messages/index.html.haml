@@ -4,26 +4,32 @@
     .contents_header--left
       %h1.current_user_name
         = current_user.name
-        = link_to "/users/:id/edit" do
+        = link_to edit_user_path(current_user.id) do
           %i.fa.fa-cog
-        = link_to "" do
+        = link_to "/groups/new" do
           %i.fa.fa-edit
       /current group name and members shown
     .contents_header--body
       %h1.current_group_name Group_name--a
       %p.group-members member-a, member-b
       .edit-button
-        %span.edit Edit
+        = link_to edit_group_path(1) do
+          .edit Edit
+
+
   .contents_main
     /registered groups shown
     .contents_main--left
       %ul.all-groups
         %li.registered-group
-          %h2.group-name Group_name--a
-          %p.group-message latest message here
-        %li.registered-group
-          %h2.group-name Group_name--b
-          %p.group-message latest message here
+        - current_user.groups.each do |group|
+          = link_to group_messages_path(group) do
+            .group-name
+              = group.name
+          .group-message メッセージはまだありません
+        -# %li.registered-group
+        -#   %h2.group-name Group_name--b
+        -#   %p.group-message latest message here
     / chat in a selected group shown
     .contents_main--body
       %ul.chat-history
