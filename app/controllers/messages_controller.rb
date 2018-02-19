@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.find(params[:id])
+    @message = Message.new(message_params)
   end
 
   private
