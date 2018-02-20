@@ -32,10 +32,13 @@
           .group-message メッセージはまだありません
     .contents_main--body
       %ul.chat-history
-        %li.chat-each
-          member-a
-          %span.posteddate posted date
-          %p.message message-1
+        - @messages.each do |message|
+          %li.chat-each
+            = User.find(message.user_id).name
+            %span.posteddate
+            = message.created_at
+            %p.message
+            = message.content
       / put your message here
       .contents_main--body--footer
         = form_for [@group, @message] do |f|
