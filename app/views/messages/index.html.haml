@@ -27,10 +27,6 @@
             .group-name
               = group.name
           .group-message メッセージはまだありません
-        -# %li.registered-group
-        -#   %h2.group-name Group_name--b
-        -#   %p.group-message latest message here
-    / chat in a selected group shown
     .contents_main--body
       %ul.chat-history
         %li.chat-each
@@ -47,11 +43,10 @@
           %p.message message-3
       / put your message here
       .contents_main--body--footer
-        .message-box
-         = form_for [@group, @message] do |f|
+        = form_for [@group, @message] do |f|
           = f.text_field :content, class: 'form__message', placeholder: 'type your message here'
           .form__mask
             = f.label :image, class: 'form__mask__image' do
-              = fa_icon 'picture_o', class: 'icon'
+              %i.fa.fa-image
               = f.file_field :image, class: 'hidden'
-          = f.submit 'Send', class: 'send-button'
+              = f.submit 'Send', class: 'send-button'

@@ -10,11 +10,11 @@
           %i.fa.fa-edit
       /current group name and members shown
     .contents_header--body
-      %h1.current_group_name Group_name--a
-      %p.group-members member-a, member-b
-      .edit-button
-        = link_to edit_group_path(1) do
-          .edit Edit
+      %h1.current_group_name Top page - select a group on left
+      -# %p.group-members member-a, member-b
+      -# .edit-button
+      -#   = link_to edit_group_path(1) do
+      -#     .edit Edit
 
 
   .contents_main
@@ -27,20 +27,20 @@
             .group-name
               = group.name
           .group-message メッセージはまだありません
-    .contents_main--body
-      %ul.chat-history
-        %li.chat-each
-          member-a
-          %span.posteddate posted date
-          %p.message message-1
-        %li.chat-each
-          member-b
-          %span.posteddate posted date
-          %p.message message-2
-        %li.chat-each
-          member-a
-          %span.posteddate posted date
-          %p.message message-3
+    -# .contents_main--body
+    -#   %ul.chat-history
+    -#     %li.chat-each
+    -#       member-a
+    -#       %span.posteddate posted date
+    -#       %p.message message-1
+    -#     %li.chat-each
+    -#       member-b
+    -#       %span.posteddate posted date
+    -#       %p.message message-2
+    -#     %li.chat-each
+    -#       member-a
+    -#       %span.posteddate posted date
+    -#       %p.message message-3
       / put your message here
       .contents_main--body--footer
         .message-box
