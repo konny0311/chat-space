@@ -10,8 +10,11 @@
           %i.fa.fa-edit
       /current group name and members shown
     .contents_header--body
-      %h1.current_group_name Group_name--a
-      %p.group-members member-a, member-b
+      %h1.current_group_name
+        = @group.name
+      %p.group-members
+        - @group.users.each do |user|
+          = user.name
       .edit-button
         = link_to edit_group_path(1) do
           .edit Edit
@@ -26,30 +29,17 @@
           = link_to group_messages_path(group) do
             .group-name
               = group.name
-          .group-message メッセージはまだありません
-        -# %li.registered-group
-        -#   %h2.group-name Group_name--b
-        -#   %p.group-message latest message here
-    / chat in a selected group shown
+          .group-message
+            = group.show_last_message
     .contents_main--body
-      %ul.chat-history
-        %li.chat-each
-          member-a
-          %span.posteddate posted date
-          %p.message message-1
-        %li.chat-each
-          member-b
-          %span.posteddate posted date
-          %p.message message-2
-        %li.chat-each
-          member-a
-          %span.posteddate posted date
-          %p.message message-3
+      = render @messages
       / put your message here
       .contents_main--body--footer
-        .message-box
-          %p.new-message
-            type your message here
-            %input#upfile{:accept => "image/*", :name => "upfile", :style => "display:none", :type => "file"}/
-            %i.fa.fa-image{:onclick => "$('#upfile').click()"}
-        .send-button Send
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'form__message', placeholder: 'type your message here'
+          .form__mask
+            = f.label :image, class: 'form__mask__image' do
+              %i.fa.fa-image
+              = f.hidden_field :user_id, value: current_user.id
+              = f.file_field :image, class: 'hidden'
+              = f.submit 'Send', class: 'send-button'

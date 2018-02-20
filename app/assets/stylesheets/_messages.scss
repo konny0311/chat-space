@@ -129,6 +129,12 @@
                   color: $message-color;
                   padding: 10px 0;
 
+                  .image-message {
+                    max-width: 200px;
+                    max-height: 200px;
+                    float: left;
+                  }
+
                 }
             }
           }
@@ -142,44 +148,43 @@
             bottom: 0;
             background-color: $footer-color;
 
-            //put your message
-            .message-box {
-              background-color: white;
-              height: 50px;
-              width: calc(100vw - #{$width-of-left} - 195px);
-              margin: 20px 15px 0 40px;
-              position: absolute;
-              bottom: 20px;
+            .form__message {
+              border: none;
               float: left;
-
-              p.new-message {
-                font-size: 14px;
-                color: $messagebox_content-color;
-                padding: 15px 0 15px 10px;
-
-                //image uploading
-                .fa-image {
-                  color: black;
-                  float: right;
-                  padding-right: 10px;
-                  font-size: 16px;
-                  }
-                }
-              }
-
-            .send-button {
-              background-color: $sendbutton-color;
               height: 50px;
-              width: 100px;
-              position: absolute;
-              bottom: 20px;
-              right: 40px;
-              text-align: center;
-              vertical-align: middle;
-              line-height: 50px;
-              color: $sendtext-color;
+              width: calc(100% - 150px);
+            }
+            .form__mask {
+              background-color: $white;
+              float: left;
+              height: 50px;
+              padding-right: 10px;
+              &__image {
+                font-size: 20px;
+                line-height: 50px;
+
               }
-          }
+              i {
+                color: black;
+
+              }
+              .hidden {
+                display: none;
+              }
+            }
+            .send-button {
+              background-color: $light_blue;
+              border: none;
+              color: $white;
+              float: right;
+              font-size: 16px;
+              height: 50px;
+              padding: 0 30px;
+              position: absolute;
+              right: 30px;
+              bottom: 20px;
+            }
         }
+      }
     }
-}
+  }
