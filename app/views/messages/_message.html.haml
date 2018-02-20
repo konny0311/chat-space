@@ -1,0 +1,8 @@
+%ul.chat-history
+  %li.chat-each
+    = message.user.name
+    %span.posteddate
+      = message.created_at
+    %p.message
+      = message.content
+      = image_tag message.image.url, class: 'image-message' if message.image.present?
