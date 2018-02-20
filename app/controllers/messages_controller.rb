@@ -19,7 +19,7 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:content, :image)
+    params.require(:message).permit(:content, :image, :user_id)
   end
 
   def set_group
