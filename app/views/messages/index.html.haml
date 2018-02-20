@@ -29,17 +29,10 @@
           = link_to group_messages_path(group) do
             .group-name
               = group.name
-          .group-message メッセージはまだありません
+          .group-message
+            = group.show_last_message
     .contents_main--body
       = render @messages
-      -# %ul.chat-history
-      -#   - @messages.each do |message|
-      -#     %li.chat-each
-      -#       = message.user.name
-      -#       %span.posteddate
-      -#         = message.created_at
-      -#       %p.message
-      -#         = message.content
       / put your message here
       .contents_main--body--footer
         = form_for [@group, @message] do |f|
