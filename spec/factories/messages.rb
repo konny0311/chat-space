@@ -1,4 +1,4 @@
-FactoriGirl.define do
+FactoryGirl.define do
 
   factory :message do
     content   "hello"
