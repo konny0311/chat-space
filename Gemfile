@@ -23,6 +23,7 @@ gem 'pry-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rspec-rails'
+gem 'rails-i18n', '~> 5.1'
 
 group :development, :test do
   gem 'byebug', platform: :mri
