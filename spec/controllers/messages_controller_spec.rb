@@ -37,7 +37,7 @@ describe MessagesController do
   end
 
   describe '#create' do
-    let(:params) {{ group_id: group.id, user_id: user.id, message: attributes_for(:message)}}
+    let(:params) {{ group_id: group.id, message: attributes_for(:message)}}
     context 'login' do
       before do
         login_user user
@@ -51,6 +51,7 @@ describe MessagesController do
 
         it 'count up message' do
           expect{ subject }.to change(Message, :count).by(1)
+          binding.pry
         end
 
         it 'redirects to group_messages_path' do
