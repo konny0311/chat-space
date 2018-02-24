@@ -42,4 +42,4 @@
               %i.fa.fa-image
               = f.hidden_field :user_id, value: current_user.id
               = f.file_field :image, class: 'hidden'
-              = f.submit 'Send', class: 'send-button'
+              = f.submit 'Send', id: 'send-button'
