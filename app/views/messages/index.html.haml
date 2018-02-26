@@ -35,7 +35,7 @@
       = render @messages
       / put your message here
       .contents_main--body--footer
-        = form_for [@group, @message] do |f|
+        = form_for [@group, @message], html: {id: "send_message"} do |f|
           = f.text_field :content, class: 'form__message', placeholder: 'type your message here'
           .form__mask
             = f.label :image, class: 'form__mask__image' do

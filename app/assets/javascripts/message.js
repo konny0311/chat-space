@@ -1,6 +1,6 @@
 $(function() {
-  $('#send-button').on('submit', function(c){
-    c.preventDefault();
+  $('#send_message').on('submit', function(e){
+    e.preventDefault();
     console.log(this);
   });
 })
