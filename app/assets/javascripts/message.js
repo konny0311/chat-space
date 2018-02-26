@@ -8,6 +8,7 @@ $(function() {
         </span>
       <p class=message>
         ${message.content}
+        </p>
         <%= image_tag message.image.url, class: 'image-message' if message.image.present? %>
         </li>`
         return html;
