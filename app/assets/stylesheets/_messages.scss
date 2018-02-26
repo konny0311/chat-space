@@ -139,6 +139,39 @@
             }
           }
 
+          .show_messages {
+            ul.chat-history {
+              padding-top: 46px;
+            li.chat-each {
+              font-size: 16px;
+              font-weight: bold;
+              color: $messanger-color;
+              padding-bottom: 40px;
+              padding-left: 40px;
+
+                span.posteddate {
+                  color: $posteddate-color;
+                  font-size: 10px;
+                  font-weight: normal;
+                }
+
+                p.message {
+                  font-size: 14px;
+                  font-weight: normal;
+                  color: $message-color;
+                  padding: 10px 0;
+
+                  .image-message {
+                    max-width: 200px;
+                    max-height: 200px;
+                    float: left;
+                  }
+
+                }
+              }
+            }
+          }
+
           //message box
           &--footer {
             height: $height-of-footer;

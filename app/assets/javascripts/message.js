@@ -1,6 +1,7 @@
 $(function() {
   function buildHTML(message){
     var html = `
+    <ul class="chat-history">
     <li class="chat-each">
       ${message.user_name}
       <span class=posteddate>
@@ -9,8 +10,8 @@ $(function() {
       <p class=message>
         ${message.content}
         </p>
-        <%= image_tag message.image.url, class: 'image-message' if message.image.present? %>
-        </li>`
+        </li>
+        </ul>`
         return html;
   }
   $('#send_message').on('submit', function(e){
