@@ -41,12 +41,15 @@ $(function() {
       data: formData,
       dataType: 'json',
       processData: false,
-      contentType: false
+      contentType: false,
+      cache: false
     })
     .done(function(data){
       var html = buildHTML(data);
       $('.show_messages').append(html)
       $('.form__message').val('')
+      $('#message_image').val('')
+      console.log(data)
     })
     return false;
   })
