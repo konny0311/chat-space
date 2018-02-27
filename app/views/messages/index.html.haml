@@ -14,7 +14,7 @@
         - @group.users.each do |user|
           = user.name
       .edit-button
-        = link_to edit_group_path(1) do
+        = link_to edit_group_path(@group) do
           .edit Edit
   .contents_main
     .contents_main--left

@@ -11,12 +11,6 @@
       /current group name and members shown
     .contents_header--body
       %h1.current_group_name Top page - select a group on left
-      -# %p.group-members member-a, member-b
-      -# .edit-button
-      -#   = link_to edit_group_path(1) do
-      -#     .edit Edit
-
-
   .contents_main
     /registered groups shown
     .contents_main--left
@@ -26,28 +20,5 @@
           = link_to group_messages_path(group) do
             .group-name
               = group.name
-          .group-message メッセージはまだありません
-    -# .contents_main--body
-    -#   %ul.chat-history
-    -#     %li.chat-each
-    -#       member-a
-    -#       %span.posteddate posted date
-    -#       %p.message message-1
-    -#     %li.chat-each
-    -#       member-b
-    -#       %span.posteddate posted date
-    -#       %p.message message-2
-    -#     %li.chat-each
-    -#       member-a
-    -#       %span.posteddate posted date
-    -#       %p.message message-3
-      / put your message here
-      .contents_main--body--footer
-        .message-box
-          -# = form_for [@group, @message] do |f|
-          -#   = f.text_field :content, class: 'form__message', placeholder: 'type your message here'
-          -#   .form__mask
-          -#     = f.label :image, class: 'form__mask__image' do
-          -#       = fa_icon 'picture_o', class: 'icon'
-          -#       = f.file_field :image, class: 'hidden'
-          -# = f.submit 'Send', class: 'send-button'
+          .group-message
+            = group.show_last_message
