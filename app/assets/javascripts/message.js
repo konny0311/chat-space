@@ -1,6 +1,6 @@
 $(function() {
   function buildHTML(message){
-    var html = `
+    var html_with_image = `
     <ul class="chat-history">
     <li class="chat-each">
       ${message.user_name}
@@ -13,7 +13,22 @@ $(function() {
       <img class="image-message" src="${message.image.url}" alt="image">
         </li>
         </ul>`
-        return html;
+    var html_without_image = `
+    <ul class="chat-history">
+    <li class="chat-each">
+      ${message.user_name}
+      <span class=posteddate>
+        ${message.created_at}
+        </span>
+      <p class=message>
+        ${message.content}
+        </p>
+        </li>
+        </ul>`
+  if (message.image.url) {
+    return html_with_image;}
+  else {
+    return html_without_image;}
   }
   $('#send_message').on('submit', function(e){
     e.preventDefault();
