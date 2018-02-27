@@ -101,7 +101,7 @@
         //chat in a selected group shown here
         &--body {
           @include contents_main(
-          calc(100vh - #{$height-of-header} - #{$height-of-contents-header}),
+          calc(100vh - #{$height-of-header} - #{$height-of-contents-header} - #{$height-of-footer}),
           calc(100vw - #{$width-of-left}),
           $mainbody-color,
           right);
@@ -138,85 +138,51 @@
                 }
             }
           }
+      }
+          //message box
+        .contents_main--body--footer {
+          height: $height-of-footer;
+          width: calc(100vw - #{$width-of-left});
+          padding: 20px 0;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          background-color: $footer-color;
 
-          .show_messages {
-            ul.chat-history {
-              padding-top: 46px;
-            li.chat-each {
-              font-size: 16px;
-              font-weight: bold;
-              color: $messanger-color;
-              padding-bottom: 40px;
-              padding-left: 40px;
+          .form__message {
+            border: none;
+            float: left;
+            height: 50px;
+            width: calc(100% - 150px);
+          }
+          .form__mask {
+            background-color: $white;
+            float: left;
+            height: 50px;
+            padding-right: 10px;
+            &__image {
+              font-size: 20px;
+              line-height: 50px;
 
-                span.posteddate {
-                  color: $posteddate-color;
-                  font-size: 10px;
-                  font-weight: normal;
-                }
-
-                p.message {
-                  font-size: 14px;
-                  font-weight: normal;
-                  color: $message-color;
-                  padding: 10px 0;
-
-                  .image-message {
-                    max-width: 200px;
-                    max-height: 200px;
-                    float: left;
-                  }
-
-                }
-              }
+            }
+            i {
+              color: black;
+            }
+            .hidden {
+              display: none;
             }
           }
-
-          //message box
-          &--footer {
-            height: $height-of-footer;
-            width: calc(100vw - #{$width-of-left});
-            padding: 20px 0;
+          #send-button {
+            background-color: $light_blue;
+            border: none;
+            color: $white;
+            float: right;
+            font-size: 16px;
+            height: 50px;
+            padding: 0 30px;
             position: absolute;
-            bottom: 0;
-            background-color: $footer-color;
-
-            .form__message {
-              border: none;
-              float: left;
-              height: 50px;
-              width: calc(100% - 150px);
-            }
-            .form__mask {
-              background-color: $white;
-              float: left;
-              height: 50px;
-              padding-right: 10px;
-              &__image {
-                font-size: 20px;
-                line-height: 50px;
-
-              }
-              i {
-                color: black;
-
-              }
-              .hidden {
-                display: none;
-              }
-            }
-            #send-button {
-              background-color: $light_blue;
-              border: none;
-              color: $white;
-              float: right;
-              font-size: 16px;
-              height: 50px;
-              padding: 0 30px;
-              position: absolute;
-              right: 30px;
-              bottom: 20px;
-            }
+            right: 30px;
+            bottom: 20px;
         }
       }
     }

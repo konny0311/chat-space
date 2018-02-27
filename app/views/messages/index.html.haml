@@ -33,15 +33,13 @@
             = group.show_last_message
     .contents_main--body
       = render @messages
-      .show_messages
 
-      / put your message here
-      .contents_main--body--footer
-        = form_for [@group, @message], html: {id: "send_message"} do |f|
-          = f.text_field :content, class: 'form__message', placeholder: 'type your message here'
-          .form__mask
-            = f.label :image, class: 'form__mask__image' do
-              %i.fa.fa-image
-              = f.hidden_field :user_id, value: current_user.id
-              = f.file_field :image, class: 'hidden'
-              = f.submit 'Send', id: 'send-button'
+    .contents_main--body--footer
+      = form_for [@group, @message], html: {id: "send_message"} do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type your message here'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            %i.fa.fa-image
+            = f.hidden_field :user_id, value: current_user.id
+            = f.file_field :image, class: 'hidden'
+            = f.submit 'Send', id: 'send-button'
