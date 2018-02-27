@@ -46,7 +46,7 @@ $(function() {
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.contents_main--body').append(html)
+      $('.contents_main--body').append(html).trigger('create');
       $('.form__message').val('')
       $('#message_image').val('')
       console.log(data)

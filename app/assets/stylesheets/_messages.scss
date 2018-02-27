@@ -128,14 +128,13 @@
                   font-weight: normal;
                   color: $message-color;
                   padding: 10px 0;
+                }
 
-                  .image-message {
+                  img.image-message {
                     max-width: 200px;
                     max-height: 200px;
                     float: left;
                   }
-
-                }
             }
           }
       }
