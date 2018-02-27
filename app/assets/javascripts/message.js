@@ -10,6 +10,7 @@ $(function() {
       <p class=message>
         ${message.content}
         </p>
+      <img class="image-message" src="${message.image.url}" alt="image">
         </li>
         </ul>`
         return html;
@@ -32,5 +33,6 @@ $(function() {
       $('.show_messages').append(html)
       $('.form__message').val('')
     })
+    return false;
   })
 });
