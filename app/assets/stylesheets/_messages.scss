@@ -81,6 +81,7 @@
           $width-of-left,
           $mainleft-color,
           left);
+          overflow: scroll;
 
             .group-name {
               font-size: 15px;
@@ -107,6 +108,7 @@
           right);
           display: flex;
           flex-direction: column;
+          overflow: scroll;
 
           //chats
           ul.chat-history {

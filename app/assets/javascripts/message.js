@@ -49,7 +49,7 @@ $(function() {
       $('.contents_main--body').append(html).trigger('create');
       $('.form__message').val('')
       $('#message_image').val('')
-      console.log(data)
+      $('.contents_main--body').animate({scrollTop: $('.contents_main--body')[0].scrollHeight}, 300, 'swing')
     })
     return false;
   })
