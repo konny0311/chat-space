@@ -1,6 +1,5 @@
 .contents
   .contents_header
-    /Current_user_name, edit and setting functions shown here
     .contents_header--left
       %h1.current_user_name
         = current_user.name
@@ -8,7 +7,6 @@
           %i.fa.fa-cog
         = link_to "/groups/new" do
           %i.fa.fa-edit
-      /current group name and members shown
     .contents_header--body
       %h1.current_group_name
         = @group.name
@@ -18,10 +16,7 @@
       .edit-button
         = link_to edit_group_path(1) do
           .edit Edit
-
-
   .contents_main
-    /registered groups shown
     .contents_main--left
       %ul.all-groups
         %li.registered-group
@@ -33,10 +28,9 @@
             = group.show_last_message
     .contents_main--body
       = render @messages
-
     .contents_main--body--footer
       = form_for [@group, @message], html: {id: "send_message"} do |f|
-        = f.text_field :content, class: 'form__message', placeholder: 'type your message here'
+        = f.text_field :content, class: 'form__message', placeholder: '  type your message here'
         .form__mask
           = f.label :image, class: 'form__mask__image' do
             %i.fa.fa-image
