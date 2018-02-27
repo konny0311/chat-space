@@ -105,6 +105,8 @@
           calc(100vw - #{$width-of-left}),
           $mainbody-color,
           right);
+          display: flex;
+          flex-direction: column;
 
           //chats
           ul.chat-history {
