@@ -51,6 +51,9 @@ $(function() {
       $('#message_image').val('')
       $('.contents_main--body').animate({scrollTop: $('.contents_main--body')[0].scrollHeight}, 300, 'swing')
     })
+    .fail(function() {
+      alert('メッセージ送信に失敗しました');
+      })
     return false;
   })
 });
