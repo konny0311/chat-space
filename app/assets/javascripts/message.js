@@ -30,7 +30,7 @@ $(function() {
   else {
     return html_without_image;}
   }
-  $('#send_message').on('submit', function(e){
+  $('#new_message').on('submit', function(e){
     e.preventDefault();
     console.log(this)
     var formData = new FormData(this);
