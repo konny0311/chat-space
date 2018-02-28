@@ -13,22 +13,7 @@ $(function() {
       <img class="image-message" src="${message.image.url}" alt="image">
         </li>
         </ul>`
-    var html_without_image = `
-    <ul class="chat-history">
-    <li class="chat-each">
-      ${message.user_name}
-      <span class=posteddate>
-        ${message.created_at}
-        </span>
-      <p class=message>
-        ${message.content}
-        </p>
-        </li>
-        </ul>`
-  if (message.image.url) {
-    return html_with_image;}
-  else {
-    return html_without_image;}
+    return html_with_image;
   }
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -47,6 +32,7 @@ $(function() {
     .done(function(data){
       var html = buildHTML(data);
       $('.contents_main--body').append(html).trigger('create');
+      if (data.image.url == null) $('.image-message').remove();
       $('.form__message').val('')
       $('#message_image').val('')
       $('.contents_main--body').animate({scrollTop: $('.contents_main--body')[0].scrollHeight}, 300, 'swing')
