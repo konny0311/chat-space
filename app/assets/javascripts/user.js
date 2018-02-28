@@ -36,5 +36,6 @@ return html;
     .fail(function() {
       alert('検索に失敗しました');
     })
+    return false;
   })
 })
