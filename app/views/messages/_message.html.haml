@@ -5,4 +5,4 @@
       = message.created_at
     %p.message
       = message.content
-      = image_tag message.image.url, class: 'image-message' if message.image.present?
+    = image_tag message.image.url, class: 'image-message' if message.image.present?

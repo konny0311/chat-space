@@ -49,18 +49,21 @@
 
         .edit-button {
           position: absolute;
-          top: 28px;
-          right: 40px;
+          top: 30px;
+          right: 30px;
           border: solid 1px $edittext-color;
+          height: 40px;
 
+          a {
+          text-decoration: none;
 
           .edit {
-          line-height: 40px;
-          margin: 0 20px;
-          color: $edittext-color;
-          text-align: center;
-          vertical-align: middle;
-          text-decoration: none;
+            vertical-align: middle;
+            padding: 7px 20px;
+            color: $edittext-color;
+            font-size: 16px;
+            text-align: center;
+            }
           }
         }
     }
@@ -81,6 +84,7 @@
           $width-of-left,
           $mainleft-color,
           left);
+          overflow: scroll;
 
             .group-name {
               font-size: 15px;
@@ -101,10 +105,13 @@
         //chat in a selected group shown here
         &--body {
           @include contents_main(
-          calc(100vh - #{$height-of-header} - #{$height-of-contents-header}),
+          calc(100vh - #{$height-of-header} - #{$height-of-contents-header} - #{$height-of-footer}),
           calc(100vw - #{$width-of-left}),
           $mainbody-color,
           right);
+          display: flex;
+          flex-direction: column;
+          overflow: scroll;
 
           //chats
           ul.chat-history {
@@ -128,62 +135,61 @@
                   font-weight: normal;
                   color: $message-color;
                   padding: 10px 0;
+                }
 
-                  .image-message {
+                  img.image-message {
                     max-width: 200px;
                     max-height: 200px;
                     float: left;
                   }
-
-                }
             }
           }
-
+      }
           //message box
-          &--footer {
-            height: $height-of-footer;
-            width: calc(100vw - #{$width-of-left});
-            padding: 20px 0;
+        .contents_main--body--footer {
+          height: $height-of-footer;
+          width: calc(100vw - #{$width-of-left});
+          padding: 20px 0;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          background-color: $footer-color;
+
+          .form__message {
+            border: none;
+            float: left;
+            height: 50px;
+            width: calc(100% - 200px);
+            margin-left: 40px;
+          }
+          .form__mask {
+            background-color: $white;
+            float: left;
+            height: 50px;
+            padding-right: 10px;
+            &__image {
+              font-size: 20px;
+              line-height: 50px;
+
+            }
+            i {
+              color: black;
+            }
+            .hidden {
+              display: none;
+            }
+          }
+          #send-button {
+            background-color: $light_blue;
+            border: none;
+            color: $white;
+            float: right;
+            font-size: 16px;
+            height: 50px;
+            padding: 0 20px;
             position: absolute;
-            bottom: 0;
-            background-color: $footer-color;
-
-            .form__message {
-              border: none;
-              float: left;
-              height: 50px;
-              width: calc(100% - 150px);
-            }
-            .form__mask {
-              background-color: $white;
-              float: left;
-              height: 50px;
-              padding-right: 10px;
-              &__image {
-                font-size: 20px;
-                line-height: 50px;
-
-              }
-              i {
-                color: black;
-
-              }
-              .hidden {
-                display: none;
-              }
-            }
-            .send-button {
-              background-color: $light_blue;
-              border: none;
-              color: $white;
-              float: right;
-              font-size: 16px;
-              height: 50px;
-              padding: 0 30px;
-              position: absolute;
-              right: 30px;
-              bottom: 20px;
-            }
+            right: 30px;
+            bottom: 20px;
         }
       }
     }

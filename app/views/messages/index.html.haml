@@ -1,6 +1,5 @@
 .contents
   .contents_header
-    /Current_user_name, edit and setting functions shown here
     .contents_header--left
       %h1.current_user_name
         = current_user.name
@@ -8,7 +7,6 @@
           %i.fa.fa-cog
         = link_to "/groups/new" do
           %i.fa.fa-edit
-      /current group name and members shown
     .contents_header--body
       %h1.current_group_name
         = @group.name
@@ -16,12 +14,9 @@
         - @group.users.each do |user|
           = user.name
       .edit-button
-        = link_to edit_group_path(1) do
+        = link_to edit_group_path(@group) do
           .edit Edit
-
-
   .contents_main
-    /registered groups shown
     .contents_main--left
       %ul.all-groups
         %li.registered-group
@@ -33,13 +28,12 @@
             = group.show_last_message
     .contents_main--body
       = render @messages
-      / put your message here
-      .contents_main--body--footer
-        = form_for [@group, @message] do |f|
-          = f.text_field :content, class: 'form__message', placeholder: 'type your message here'
-          .form__mask
-            = f.label :image, class: 'form__mask__image' do
-              %i.fa.fa-image
-              = f.hidden_field :user_id, value: current_user.id
-              = f.file_field :image, class: 'hidden'
-              = f.submit 'Send', class: 'send-button'
+    .contents_main--body--footer
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: '  type your message here'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            %i.fa.fa-image
+            = f.hidden_field :user_id, value: current_user.id
+            = f.file_field :image, class: 'hidden'
+            = f.submit 'Send', id: 'send-button'
