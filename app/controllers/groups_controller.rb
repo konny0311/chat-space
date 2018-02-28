@@ -4,6 +4,11 @@ class GroupsController < ApplicationController
   end
 
   def new
+    @groups = Group.where('title LIKE(?)', "%#{params[:keyword]}%").limit(10)
+    respond_to do |format|
+      format.html
+      format.json
+      end
     @group = Group.new
     @group.users << current_user
   end
@@ -25,8 +30,8 @@ class GroupsController < ApplicationController
       redirect_to group_messages_path(@group), notice: "グループを編集しました"
     else
       render :edit
+    end
   end
-end
 
   private
   def group_params
