@@ -4,11 +4,6 @@ class GroupsController < ApplicationController
   end
 
   def new
-    @groups = Group.where('title LIKE(?)', "%#{params[:keyword]}%").limit(10)
-    respond_to do |format|
-      format.html
-      format.json
-      end
     @group = Group.new
     @group.users << current_user
   end
