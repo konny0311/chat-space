@@ -46,16 +46,23 @@ $(function() {
 
   setInterval(function(){
     $.ajax({
-      url: location.href.json,
+      url: location.href.json
     })
     .done(function(messages) {
+      console.log('自動更新中')
+      var insertHTML = "";
       messages.forEach(function(message) {
-        var
+      var id = $('.chat-history').data('message-id')
+      if (message.id > id) {
+      insertHTML += buildHTML(message)
+      $('.contents_main--body').append(insertHTML);
+      // if (message.image.url == null) $('.image-message').remove();
+      }
       })
     })
     .fail(function() {
-
+      alert('自動更新に失敗しました')
     });
-  }, 5000);
+  }, 3000);
 
 });
