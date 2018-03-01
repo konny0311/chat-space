@@ -7,6 +7,15 @@ $(function() {
     </div>`
     return html;
     }
+  function addHTML(id, name) {
+    var html = `
+    <div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
+    <input name='group[user_ids][]' type='hidden' value='${id}'>
+    <p class='chat-group-user__name'>${name}</p>
+    <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
+    </div>`
+    return html;
+    }
   $(".chat-group-form__input").on("keyup", function(){
     var input = $(".chat-group-form__input").val();
     $.ajax({
@@ -20,8 +29,8 @@ $(function() {
       $('#user-search-result').empty();
       if (users.length !== 0) {
         users.forEach(function(user) {
-          var html = searchHTML(user)
-          $('#user-search-result').append(html)
+        var html = searchHTML(user)
+        $('#user-search-result').append(html)
         })
       }
       else {
@@ -30,25 +39,16 @@ $(function() {
           <p class="chat-group-user__name">一致するユーザーはいません</p>
           </div>`
         )}
+      // メンバー追加
       $('.chat-group-user').on('click',　'.chat-group-user__btn--add', function(user) {
-        console.log(this)
-        function addHTML(id, name) {
-          var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
-    <input name='group[user_ids][]' type='hidden' value='${id}'>
-    <p class='chat-group-user__name'>${name}</p>
-    <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
-    </div>`
-    return html;
-        }
         var id = this.dataset.user_id
         var name = this.dataset.user_name
         var html = addHTML(id, name)
         $('#chat-group-seletcted-members').append(html)
         $(this).parent().remove();
-
-        $('.chat-group-user').on('click', '.user-search-remove', function(user) {
-          console.log(this)
-          $(this).parent().remove();
+        // 追加メンバー削除
+        $('.chat-group-user').on('click', '.user-search-remove', function() {
+        $(this).parent().remove();
         })
         // if end
       })
@@ -57,6 +57,5 @@ $(function() {
     .fail(function() {
       alert('検索に失敗しました');
     })
-    return false;
   })
 })

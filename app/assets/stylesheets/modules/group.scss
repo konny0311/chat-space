@@ -59,18 +59,8 @@
       font-weight: bold;
       text-align: right;
 
-    }
+    .chat-members {}
 
-    .chat-members {
-      float: left;
-      width: 30%;
-      padding-right: 20px;
-      padding-left: 20px;
-      box-sizing: border-box;
-      display: block;
-      line-height: 50px;
-      font-weight: bold;
-      text-align: right;
     }
 
 
@@ -95,9 +85,6 @@
       box-sizing: border-box;
     }
   }
-  // #chat-group-seletcted-members {
-  //
-  // }
 
   .chat-group-user {
     padding: 0 15px;
