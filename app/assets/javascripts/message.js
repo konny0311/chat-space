@@ -15,6 +15,7 @@ $(function() {
         </ul>`
     return html_with_image;
   }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     console.log(this)
@@ -42,4 +43,10 @@ $(function() {
       })
     return false;
   })
+  // var count = 0;
+  // var countup = function() {
+  //   console.log(count++);
+  // }
+  // setInterval(countup, 1000);
+
 });
