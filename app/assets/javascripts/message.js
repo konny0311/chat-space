@@ -48,7 +48,14 @@ $(function() {
     $.ajax({
       url: location.href.json,
     })
-    .done(function())
-  })
+    .done(function(messages) {
+      messages.forEach(function(message) {
+        var
+      })
+    })
+    .fail(function() {
+
+    });
+  }, 5000);
 
 });
