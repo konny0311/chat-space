@@ -43,10 +43,12 @@ $(function() {
       })
     return false;
   })
-  // var count = 0;
-  // var countup = function() {
-  //   console.log(count++);
-  // }
-  // setInterval(countup, 1000);
+
+  setInterval(function(){
+    $.ajax({
+      url: location.href.json,
+    })
+    .done(function())
+  })
 
 });
