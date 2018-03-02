@@ -10,7 +10,7 @@ $(function() {
       <p class=message>
         ${message.content}
         </p>
-      <img class="image-message" src="${message.image.url}" alt="image">
+      <img class="image-message" src="${message.image}" alt="image">
         </li>
         </ul>`
     return html_with_image;
@@ -44,25 +44,24 @@ $(function() {
     return false;
   })
 
-  setInterval(function(){
+  setInterval(function() {
+    if ($('.chat-history')[0]) {
+    var id = $('.chat-history:last').data('message-id')}
+    else {
+      var id = 0
+    }
     $.ajax({
-      url: location.href.json
+      url: location.href,
+      type: 'GET',
+      data: {message: {id: id}},
+      dataType:'json'
     })
-    .done(function(messages) {
+    .always(function(data) {
       console.log('自動更新中')
-      var insertHTML = "";
-      messages.forEach(function(message) {
-      var id = $('.chat-history').data('message-id')
-      if (message.id > id) {
-      insertHTML += buildHTML(message)
-      $('.contents_main--body').append(insertHTML);
-      // if (message.image.url == null) $('.image-message').remove();
-      }
+      $.each(data, function(i, data) {
+        var html = buildHTML(data);
+        $('.contents_main--body').append(html)
       })
     })
-    .fail(function() {
-      alert('自動更新に失敗しました')
-    });
-  }, 3000);
-
+  }, 5000);
 });
