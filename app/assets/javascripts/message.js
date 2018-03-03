@@ -1,4 +1,27 @@
 $(function() {
+  var interval = setInterval(function(){
+      if ($('.chat-history')) {
+      var id = $('.chat-history:last')[0].dataset.message_id
+    }
+      else {
+        var id = 0
+      }
+      $.ajax({
+        url: location.href,
+        type: 'GET',
+        data: {id: id},
+        dataType:'json'
+      })
+      .always(function(data) {
+        data.forEach(function(message) {
+          var html = buildHTML(message);
+          $('.contents_main--body').append(html)
+          if (message.image.url == null) $('.image-message').remove();
+          ('.contents_main--body').animate({scrollTop: $('.contents_main--body')[0].scrollHeight}, 300, 'swing')
+        })
+      })
+    }
+  , 5000)
   function buildHTML(message){
     var html_with_image = `
     <ul class="chat-history">
@@ -10,12 +33,11 @@ $(function() {
       <p class=message>
         ${message.content}
         </p>
-      <img class="image-message" src="${message.image}" alt="image">
+      <img class="image-message" src="${message.image.url}" alt="image">
         </li>
         </ul>`
     return html_with_image;
   }
-
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     console.log(this)
@@ -43,25 +65,4 @@ $(function() {
       })
     return false;
   })
-
-  setInterval(function() {
-    if ($('.chat-history')[0]) {
-    var id = $('.chat-history:last').data('message-id')}
-    else {
-      var id = 0
-    }
-    $.ajax({
-      url: location.href,
-      type: 'GET',
-      data: {message: {id: id}},
-      dataType:'json'
-    })
-    .always(function(data) {
-      console.log('自動更新中')
-      $.each(data, function(i, data) {
-        var html = buildHTML(data);
-        $('.contents_main--body').append(html)
-      })
-    })
-  }, 5000);
 });
