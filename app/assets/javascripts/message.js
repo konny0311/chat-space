@@ -24,12 +24,7 @@ $(function() {
     $('#message_image').val('')
   }
   setInterval(function(){
-    if ($('.chat-history')) {
-      var id = $('.chat-history:last')[0].dataset.message_id
-    }
-    else {
-      var id = 0
-    }
+    var id = ($('.chat-history')) ? $('.chat-history:last')[0].dataset.message_id : 0
     $.ajax({
       url: location.href,
       type: 'GET',
