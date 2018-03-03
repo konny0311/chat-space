@@ -10,7 +10,6 @@ $(function() {
       <p class=message>
         ${message.content}
         </p>
-      <img class="image-message" src="${message.image.url}" alt="image">
         </li>
         </ul>`
     return html_with_image;
@@ -18,7 +17,9 @@ $(function() {
   function insertHTML(message){
     var html = buildHTML(message);
     $('.contents_main--body').append(html).trigger('create');
-    if (message.image.url == null) $('.image-message').remove();
+    (message.image.url == null) ? $('.chat-each:last').append('') :
+    $('.chat-each:last').append(
+      `<img class="image-message" src="${message.image.url}" alt="image">`)
     $('.contents_main--body').animate({scrollTop: $('.contents_main--body')[0].scrollHeight}, 300, 'swing')
     $('.form__message').val('')
     $('#message_image').val('')
@@ -60,4 +61,4 @@ $(function() {
       })
     return false;
   })
-});
+// });
