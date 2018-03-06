@@ -1,17 +1,16 @@
 $(function() {
   function buildHTML(message){
-    var html_without_image =
-    '<ul class="chat-history" data-message_id="' + message.id + '">'
+    var html_without_image = '<ul class="chat-history" data-message_id="' + message.id + '">' +
     '<li class="chat-each">'
       + message.user_name +
-      '<span class=posteddate>'
+      '<span class=posteddate>' +
         + message.created_at +
-        '</span>'
+        '</span>' +
       '<p class=message>'
         + message.content +
-        '</p>'
-        '</li>'
-        '</ul>'
+        '</p>' +
+        '</li>' +
+        '</ul>' +
     $('.contents_main--body').append(html_without_image)
     if (message.image.url) $('.chat-each:last').append(
       '<img class="image-message" src="' + message.image.url + '" alt="image">')
@@ -23,20 +22,20 @@ $(function() {
     $('#message_image').val('')
   }
   // setInterval(function(){
-    var id = ($('.chat-history')) ? $('.chat-history:last')[0].dataset.message_id : 0
-    $.ajax({
-      url: location.href,
-      type: 'GET',
-      data: {id: id},
-      dataType:'json'
-    })
-    .always(function(data) {
-      data.forEach(function(message) {
-        insertHTML(message);
-      })
-    })
-  }
-  , 5000)
+  //   var id = ($('.chat-history')) ? $('.chat-history:last')[0].dataset.message_id : 0
+  //   $.ajax({
+  //     url: location.href,
+  //     type: 'GET',
+  //     data: {id: id},
+  //     dataType:'json'
+  //   })
+  //   .always(function(data) {
+  //     data.forEach(function(message) {
+  //       insertHTML(message);
+  //     })
+  //   })
+  // }
+  // , 5000)
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);

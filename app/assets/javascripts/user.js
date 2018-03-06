@@ -1,18 +1,16 @@
 $(function() {
   function searchHTML(user){
-    var html =
-    '<div class="chat-group-user clearfix">'
-    '<p class="chat-group-user__name">' + user.name + '</p>'
-    '<a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user_id=' + user.id + '" data-user_name="' + 'user.name' + '">追加</a>'
+    var html = '<div class="chat-group-user clearfix">' +
+    '<p class="chat-group-user__name">' + user.name + '</p>' +
+    '<a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user_id=' + user.id + '" data-user_name="' + 'user.name' + '">追加</a>' +
     '</div>'
     return html;
     }
   function addHTML(id, name) {
-    var html =
-    '<div class="chat-group-user clearfix js-chat-member" id="chat-group-user-8">'
-    '<input name="group[user_ids][]" type="hidden" value="' + id + '">'
-    '<p class="selected-user__name">' + name + '</p>'
-    '<a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn">削除</a>'
+    var html = '<div class="chat-group-user clearfix js-chat-member" id="chat-group-user-8">' +
+    '<input name="group[user_ids][]" type="hidden" value="' + id + '">' +
+    '<p class="selected-user__name">' + name + '</p>' +
+    '<a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn">削除</a>' +
     '</div>'
     return html;
     }
@@ -40,8 +38,8 @@ $(function() {
       }
       else {
         $('#user-search-result').append(
-          '<div class="chat-group-user clearfix">'
-          '<p class="chat-group-user__name">一致するユーザーはいません</p>'
+          '<div class="chat-group-user clearfix">' +
+          '<p class="chat-group-user__name">一致するユーザーはいません</p>' +
           '</div>'
         )}
       // メンバー追加
