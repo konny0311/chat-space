@@ -27,7 +27,7 @@ gem 'rails-i18n', '~> 5.1'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem'capistrano'
+  gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'

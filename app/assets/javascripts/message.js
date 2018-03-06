@@ -21,7 +21,7 @@ $(function() {
     $('.form__message').val('')
     $('#message_image').val('')
   }
-  setInterval(function(){
+  // setInterval(function(){
     var id = ($('.chat-history')) ? $('.chat-history:last')[0].dataset.message_id : 0
     $.ajax({
       url: location.href,
