@@ -11,7 +11,7 @@ $(function() {
     var html = `
     <div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
     <input name='group[user_ids][]' type='hidden' value='${id}'>
-    <p class='chat-group-user__name'>${name}</p>
+    <p class='selected-user__name'>${name}</p>
     <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
     </div>`
     return html;
@@ -29,8 +29,13 @@ $(function() {
       $('#user-search-result').empty();
       if (users.length !== 0) {
         users.forEach(function(user) {
+          // ユーザー二重選択解消試みるも失敗
+          // var names = document.getElementsByClassName('selected-user__name');
+          // names.forEach(function(name) {
+          //   if (user.name == name.textContent) user.delete;
+          // })
         var html = searchHTML(user)
-        $('#user-search-result').append(html)
+        $('#user-search-result').append(html);
         })
       }
       else {
@@ -46,6 +51,7 @@ $(function() {
         var html = addHTML(id, name)
         $('#chat-group-seletcted-members').append(html)
         $(this).parent().remove();
+        $('.chat-group-form__input').val('');
         // 追加メンバー削除
         $('.chat-group-user').on('click', '.user-search-remove', function() {
         $(this).parent().remove();
