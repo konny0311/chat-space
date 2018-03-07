@@ -1,6 +1,7 @@
 $(function() {
   function buildHTML(message){
-    var html_without_image = '<ul class="chat-history" data-message_id="' + message.id + '">' +
+    var html_without_image =
+    '<ul class="chat-history" data-message_id="' + message.id + '">' +
     '<li class="chat-each">' +
        message.user_name +
       '<span class=posteddate>' +
@@ -10,7 +11,7 @@ $(function() {
          message.content +
         '</p>' +
         '</li>' +
-        '</ul>' +
+        '</ul>'
     $('.contents_main--body').append(html_without_image)
     if (message.image.url) $('.chat-each:last').append(
       '<img class="image-message" src="' + message.image.url + '" alt="image">')

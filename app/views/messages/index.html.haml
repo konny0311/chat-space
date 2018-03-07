@@ -30,7 +30,7 @@
       = render @messages
     .contents_main--body--footer
       = form_for [@group, @message] do |f|
-        = f.text_field :content, class: 'form__message', placeholder: '  '
+        = f.text_field :content, class: 'form__message', placeholder: ' type your message here'
         .form__mask
           = f.label :image, class: 'form__mask__image' do
             %i.fa.fa-image
