@@ -1,13 +1,15 @@
 $(function() {
   function searchHTML(user){
-    var html = '<div class="chat-group-user clearfix">' +
+    var html =
+    '<div class="chat-group-user clearfix">' +
     '<p class="chat-group-user__name">' + user.name + '</p>' +
-    '<a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user_id=' + user.id + '" data-user_name="' + 'user.name' + '">追加</a>' +
+    '<a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user_id=' + user.id + ' data-user_name=' + user.name + '>追加</a>' +
     '</div>'
     return html;
     }
   function addHTML(id, name) {
-    var html = '<div class="chat-group-user clearfix js-chat-member" id="chat-group-user-8">' +
+    var html =
+    '<div class="chat-group-user clearfix js-chat-member" id="chat-group-user-8">' +
     '<input name="group[user_ids][]" type="hidden" value="' + id + '">' +
     '<p class="selected-user__name">' + name + '</p>' +
     '<a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn">削除</a>' +
