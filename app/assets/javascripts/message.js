@@ -31,13 +31,15 @@ $(function() {
       dataType:'json'
     })
     .always(function(data) {
-      if (data) {console.log(data)}
-      else {
-        console.log('no data')
-      }
-      // data.forEach(function(message) {
-      //   insertHTML(message);
-      // })
+      // if (data) {console.log(data)}
+      // else {
+      //   console.log('no data')
+      // }
+      if (data) {
+      data.forEach(function(message) {
+        insertHTML(message);
+      })
+     }
     })
   }
   , 5000)
