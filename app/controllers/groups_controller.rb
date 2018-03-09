@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update]
   def index
+    @groups = GroupUser.where("user_id = #{current_user.id}")
   end
 
   def new

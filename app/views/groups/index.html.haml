@@ -10,7 +10,10 @@
           %i.fa.fa-edit
       /current group name and members shown
     .contents_header--body
-      %h1.current_group_name Top page - select a group on left
+      -if @groups.present?
+        %h1.current_group_name Top page - select a group on left
+      -else
+        %h1.current_group_name Create a chat group from logo
   .contents_main
     /registered groups shown
     .contents_main--left
