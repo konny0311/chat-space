@@ -1,5 +1,6 @@
 %ul.chat-history{"data-message_id": message.id}
   %li.chat-each
+    = image_tag message.user.image, class: 'user-image-message' if message.user.image.present? 
     = message.user.name
     %span.posteddate
       = message.created_at
