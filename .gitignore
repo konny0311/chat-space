@@ -18,3 +18,4 @@
 
 # Ignore uploaded images
 /public/uploads/message/image/*
+app/assets/images/*
