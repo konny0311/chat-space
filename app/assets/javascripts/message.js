@@ -22,27 +22,6 @@ $(function() {
     $('.form__message').val('')
     $('#message_image').val('')
   }
-  setInterval(function(){
-    var id = ($('.chat-history')) ? $('.chat-history:last')[0].dataset.message_id : 0
-    $.ajax({
-      url: location.href,
-      type: 'GET',
-      data: {id: id},
-      dataType:'json'
-    })
-    .always(function(data) {
-      // if (data) {console.log(data)}
-      // else {
-      //   console.log('no data')
-      // }
-      if (data) {
-      data.forEach(function(message) {
-        insertHTML(message);
-      })
-     }
-    })
-  }
-  , 5000)
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -64,4 +43,25 @@ $(function() {
       })
     return false;
   })
+  setInterval(function(){
+    var id = ($('.chat-history')) ? $('.chat-history:last')[0].dataset.message_id : 0
+    $.ajax({
+      url: location.href,
+      type: 'GET',
+      data: {id: id},
+      dataType:'json'
+    })
+    .always(function(data) {
+      // if (data) {console.log(data)}
+      // else {
+      //   console.log('no data')
+      // }
+      if (data) {
+      data.forEach(function(message) {
+        insertHTML(message);
+      })
+     }
+    })
+  }
+  , 5000)
 });
