@@ -14,10 +14,16 @@
       $headerleft-color);
 
       h1.current_user_name {
-        font-size: 16px;
+        font-size: 20px;
         color: $username-color;
         padding: 35px 0 0 20px;
         text-align: left;
+
+        // user image
+        .image-user {
+          height: 40px;
+          width: 40px;
+        }
         // icons
         i {
           float: right;
