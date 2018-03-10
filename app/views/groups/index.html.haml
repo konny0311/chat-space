@@ -3,6 +3,7 @@
     /Current_user_name, edit and setting functions shown here
     .contents_header--left
       %h1.current_user_name
+        = image_tag current_user.image, class: 'image-user' if current_user.image.present?
         = current_user.name
         = link_to edit_user_path(current_user.id) do
           %i.fa.fa-cog
